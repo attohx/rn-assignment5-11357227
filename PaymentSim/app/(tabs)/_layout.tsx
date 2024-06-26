@@ -22,7 +22,7 @@ export default function TabLayout() {
         name="statistics"
         options={{
           title: 'Statistics',
-          tabBarIcon: ({ color }) => <FontAwesome size={28} name="" color={color} />,
+          tabBarIcon: ({ color }) => <FontAwesome size={28} name="signal" color={color} />,
         }}
       />
       <Tabs.Screen

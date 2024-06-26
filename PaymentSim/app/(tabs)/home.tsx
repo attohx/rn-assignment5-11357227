@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, FlatList, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons'; // Import Ionicons
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const cardDetails = [
   { id: '1', cardNumber: '1234 5678 9110 8888', cardholder: 'Eric Atsu', expiration: '12/24', cvv: '1234', cardType: 'Mastercard' },
@@ -11,7 +11,6 @@ const transactionsData = [
   { id: '2', name: 'Spotify', category: 'Music', amount: '-$12.99', profilePicture: 'https://img.icons8.com/?size=100&id=63316&format=png&color=000000' },
   { id: '3', name: 'Money Transfer', category: 'Transaction', amount: '$300', profilePicture: 'https://img.icons8.com/?size=100&id=89791&format=png&color=000000' },
   { id: '4', name: 'Groceries', category: 'Transaction', amount: '-$88', profilePicture: 'https://img.icons8.com/?size=100&id=7U2B6zgb7PMv&format=png&color=000000' },
-  // Add more transactions as needed
 ];
 
 export default function Tab() {
@@ -43,8 +42,6 @@ export default function Tab() {
                   <Text style={styles.label}>CVV:</Text>
                   <Text style={styles.value}>{item.cvv}</Text>
                 </View>
-                <View style={styles.cardFooterRight}>
-                </View>
                 <Image
                   source={{ uri: 'https://img.icons8.com/?size=100&id=13610&format=png&color=000000' }}
                   style={styles.cardTypeImage}
@@ -56,22 +53,21 @@ export default function Tab() {
         />
       </View>
 
-      {/* Round Icons */}
       <View style={styles.iconContainer}>
         <TouchableOpacity style={styles.roundIcon}>
-          <Icon name="paper-plane-outline" size={50} color="#007AFF" />
+          <Icon name="arrow-up-outline" size={50} color="#808080" />
           <Text style={styles.iconText}>Send</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.roundIcon}>
-          <Icon name="cash-outline" size={50} color="#007AFF" />
-          <Text style={styles.iconText}>Recieve</Text>
+          <Icon name="arrow-down-outline" size={50} color="#808080" />
+          <Text style={styles.iconText}>Receive</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.roundIcon}>
-          <Icon name="card-outline" size={50} color="#007AFF" />
+          <Icon name="cash-outline" size={50} color="#808080" />
           <Text style={styles.iconText}>Loan</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.roundIcon}>
-          <Icon name="cash-outline" size={50} color="#007AFF" />
+          <Icon name="cloud-upload-outline" size={50} color="#808080" />
           <Text style={styles.iconText}>TopUp</Text>
         </TouchableOpacity>
       </View>
@@ -94,7 +90,12 @@ export default function Tab() {
                   <Text style={styles.transactionName}>{item.name}</Text>
                   <Text style={styles.transactionCategory}>{item.category}</Text>
                 </View>
-                <Text style={styles.transactionAmount}>{item.amount}</Text>
+                <Text style={[
+                  styles.transactionAmount,
+                  item.amount === '$300' && styles.blueAmount
+                ]}>
+                  {item.amount}
+                </Text>
               </View>
             </View>
           )}
@@ -184,10 +185,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'left',
   },
-  cardFooterRight: {
-    flexDirection: 'row',
-    alignItems: 'right',
-  },
   label: {
     fontSize: 14,
     color: '#888',
@@ -202,13 +199,6 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     resizeMode: 'contain',
-  },
-  cardType: {
-    fontSize: 14,
-    color: '#888',
-    textAlign: 'right',
-    marginTop: 10,
-    alignItems: 'right',
   },
   transactions: {
     marginTop: 5,
@@ -262,21 +252,22 @@ const styles = StyleSheet.create({
     textAlign: 'right',
     minWidth: 80,
   },
-
+  blueAmount: {
+    color: 'blue',
+  },
   iconContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingHorizontal: 10,
-    marginTop:5,
-
+    paddingHorizontal: 30,
+    marginTop: 5,
   },
   roundIcon: {
     alignItems: 'center',
-    marginRight: 30,
+    marginHorizontal: 20, // Increased space between icons
   },
-  iconImage: {
-    width: 20,
-    height: 20,
-    resizeMode: 'contain',
+  iconText: {
+    fontSize: 14,
+    color: '#808080',
+    marginTop: 5,
   },
 });

@@ -12,27 +12,70 @@ export default function Tab() {
     setIsDarkTheme((previousState) => !previousState);
   };
 
+  // Define styles for light and dark themes
+  const themeStyles = {
+    light: StyleSheet.create({
+      container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'flex-start', // Align items to the left
+        padding: 20,
+        backgroundColor: '#ffffff', // Light background color
+      },
+      link: {
+        fontSize: 18,
+        color: 'black', // Light mode text color
+        marginTop: 30,
+      },
+      themeText: {
+        fontSize: 18,
+        color: 'black',
+        flex: 1, // Make the text take up the remaining space
+      },
+    }),
+    dark: StyleSheet.create({
+      container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+        padding: 20,
+        backgroundColor: '#121212', // Dark background color
+      },
+      link: {
+        fontSize: 18,
+        color: 'white', // Dark mode text color
+        marginTop: 30,
+      },
+      themeText: {
+        fontSize: 18,
+        color: 'white',
+        flex: 1,
+      },
+    }),
+  };
+
+  // Determine which theme to use based on isDarkTheme
+  const currentTheme = isDarkTheme ? themeStyles.dark : themeStyles.light;
+  
   return (
-    <View style={styles.container}>
+    <View style={currentTheme.container}>
       <TouchableOpacity style={styles.linkContainer} onPress={() => handlePress('Language')}>
-        <Text style={styles.link}>Language</Text>
+        <Text style={currentTheme.link}>Language</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.linkContainer} onPress={() => handlePress('My Profile')}>
-        <Text style={styles.link}>My Profile</Text>
+        <Text style={currentTheme.link}>My Profile</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.linkContainer} onPress={() => handlePress('Contact Us')}>
-        <Text style={styles.link}>Contact Us</Text>
+        <Text style={currentTheme.link}>Contact Us</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.linkContainer} onPress={() => handlePress('Change Password')}>
-        <Text style={styles.link}>Change Password</Text>
+        <Text style={currentTheme.link}>Change Password</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.linkContainer} onPress={() => handlePress('Privacy Policy')}>
-        <Text style={styles.link}>Privacy Policy</Text>
+        <Text style={currentTheme.link}>Privacy Policy</Text>
       </TouchableOpacity>
       <View style={styles.themeContainer}>
-        
-        <Text style={styles.themeText}>Theme</Text>
-        
+        <Text style={currentTheme.themeText}>Theme</Text>
         <Switch
           onValueChange={toggleTheme}
           value={isDarkTheme}
@@ -43,34 +86,16 @@ export default function Tab() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'flex-start', // Align items to the left
-    padding: 20,
-  },
   linkContainer: {
     width: '100%',
     borderBottomWidth: 1,
     borderBottomColor: '#ccc',
     paddingVertical: 10,
-
-  },
-  link: {
-    fontSize: 18,
-    color: 'black', // Set font color to black
-    marginTop: 30,
-
   },
   themeContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: 30,
-    width: '100%', // Ensure it takes the full width of the container
-  },
-  themeText: {
-    fontSize: 18,
-    color: 'black',
-    flex: 1, // Make the text take up the remaining space
+    width: '100%',
   },
 });
