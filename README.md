@@ -56,8 +56,8 @@ After installing the dependencies and running the application, you should be abl
 
 ## Screenshots
 
-![Settings Dark Mode](./shot1.png)
-![Settings Light Mode](./shot2.png)
+![Settings Dark Mode](./shot1.PNG)
+![Settings Light Mode](./shot2.PNG)
 ![Home Light Mode](./shot5.png)
 ![Home Dark Mode](./shot4.png)
 
