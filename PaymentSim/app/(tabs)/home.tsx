@@ -55,19 +55,19 @@ export default function Tab() {
 
       <View style={styles.iconContainer}>
         <TouchableOpacity style={styles.roundIcon}>
-          <Icon name="arrow-up-outline" size={50} color="#808080" />
+          <Icon name="arrow-up-outline" size={40} color="#808080" />
           <Text style={styles.iconText}>Send</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.roundIcon}>
-          <Icon name="arrow-down-outline" size={50} color="#808080" />
+          <Icon name="arrow-down-outline" size={40} color="#808080" />
           <Text style={styles.iconText}>Receive</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.roundIcon}>
-          <Icon name="cash-outline" size={50} color="#808080" />
+          <Icon name="cash-outline" size={40} color="#808080" />
           <Text style={styles.iconText}>Loan</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.roundIcon}>
-          <Icon name="cloud-upload-outline" size={50} color="#808080" />
+          <Icon name="cloud-upload-outline" size={40} color="#808080" />
           <Text style={styles.iconText}>TopUp</Text>
         </TouchableOpacity>
       </View>

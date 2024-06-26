@@ -9,7 +9,6 @@ A React Native application that displays user profile information, card details,
 - [Usage](#usage)
 - [Screenshots](#screenshots)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Project Description
 
@@ -27,12 +26,12 @@ This project is a financial dashboard built using React Native. It allows users 
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-username/financial-dashboard.git
+    git https://github.com/attohx/rn-assignment5-11357227
     ```
 
 2. Navigate to the project directory:
     ```bash
-    cd financial-dashboard
+    cd PaymentSim
     ```
 
 3. Install the dependencies:
@@ -57,9 +56,11 @@ After installing the dependencies and running the application, you should be abl
 
 ## Screenshots
 
-![Profile and Card Details](https://example.com/screenshot1.png)
-![Quick Access Icons](https://example.com/screenshot2.png)
-![Transactions](https://example.com/screenshot3.png)
+![Settings Dark Mode](./shot1.png)
+![Settings Light Mode](./shot2.png)
+![Home Light Mode](./shot5.png)
+![Home Dark Mode](./shot4.png)
+
 
 ## Contributing
 
