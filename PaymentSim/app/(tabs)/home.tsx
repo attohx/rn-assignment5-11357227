@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, FlatList } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import { View, Text, StyleSheet, Image, FlatList, TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons'; // Import Ionicons
 
 const cardDetails = [
   { id: '1', cardNumber: '1234 5678 9110 8888', cardholder: 'Eric Atsu', expiration: '12/24', cvv: '1234', cardType: 'Mastercard' },
@@ -56,6 +56,26 @@ export default function Tab() {
         />
       </View>
 
+      {/* Round Icons */}
+      <View style={styles.iconContainer}>
+        <TouchableOpacity style={styles.roundIcon}>
+          <Icon name="paper-plane-outline" size={50} color="#007AFF" />
+          <Text style={styles.iconText}>Send</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.roundIcon}>
+          <Icon name="cash-outline" size={50} color="#007AFF" />
+          <Text style={styles.iconText}>Recieve</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.roundIcon}>
+          <Icon name="card-outline" size={50} color="#007AFF" />
+          <Text style={styles.iconText}>Loan</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.roundIcon}>
+          <Icon name="cash-outline" size={50} color="#007AFF" />
+          <Text style={styles.iconText}>TopUp</Text>
+        </TouchableOpacity>
+      </View>
+
       <View style={styles.transactions}>
         <View style={styles.transactionsHeader}>
           <Text style={styles.sectionTitle}>Transactions</Text>
@@ -90,7 +110,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-start',
     alignItems: 'center',
-    paddingTop: 20,
+    paddingTop: 5,
   },
   header: {
     flexDirection: 'row',
@@ -121,7 +141,7 @@ const styles = StyleSheet.create({
   quickAccess: {
     width: '100%',
     paddingHorizontal: 20,
-    marginTop: 4,
+    marginTop: 1,
   },
   sectionTitle: {
     fontSize: 14,
@@ -130,9 +150,9 @@ const styles = StyleSheet.create({
   },
   card: {
     backgroundColor: '#D3D3D3',
-    padding: 15,
+    padding: 10,
     marginVertical: 10,
-    borderRadius: 10,
+    borderRadius: 20,
     width: '100%',
     height: 200,
     justifyContent: 'center',
@@ -145,10 +165,10 @@ const styles = StyleSheet.create({
   },
   cardholder: {
     fontSize: 16,
-    fontWeight:'bold',
+    fontWeight: 'bold',
     color: '#666',
     textAlign: 'left',
-    marginTop: 15, 
+    marginTop: 15,
   },
   cardFooter: {
     flexDirection: 'row',
@@ -209,11 +229,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
     borderRadius: 10,
     marginBottom: 10,
-    // elevation: 1,
-    /*shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,*/
     alignItems: 'center',
     height: 70,
   },
@@ -246,5 +261,22 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'right',
     minWidth: 80,
+  },
+
+  iconContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 10,
+    marginTop:5,
+
+  },
+  roundIcon: {
+    alignItems: 'center',
+    marginRight: 30,
+  },
+  iconImage: {
+    width: 20,
+    height: 20,
+    resizeMode: 'contain',
   },
 });
